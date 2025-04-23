@@ -21,15 +21,13 @@ import { model } from "./obj/model.js";
 3. You can then load a model like this
 
 ```js
-const loadedModel = await loadOBJ(model);
+const loadedModel = loadOBJ(model);
 system.runJob(renderOBJ(loadedModel, { x: 0, y: 200, z: 0 }, 1, 1, { x: 0, y: 400, z: 0 }));
 ```
 
 ### Warning Loading models might take a while
 
 ## Exmaple
-
-for this one I forgot where exactly the light pos was
 
 ```js
 import { model } from "./obj/cat.js";
@@ -39,3 +37,9 @@ system.runJob(renderOBJ(loadedModel, { x: 0, y: 200, z: 0 }, 0.1, 8));
 ```
 
 ![Debug Render Example](./public/cat.png)
+
+## Possible upgrades
+
+- Add an animation engine
+- Add support for vertex colors and per-face coloring
+- Support for loading MTL (material) files for color

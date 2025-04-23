@@ -2,6 +2,8 @@ import { debugDrawer, DebugLine } from "@minecraft/debug-utilities";
 import { model } from "./obj/cat.js";
 import { system, world } from "@minecraft/server";
 
+let totalLineCount = 0;
+
 const playerSpawnEvent = world.afterEvents.playerSpawn.subscribe(() => {
     const loadedModel = loadOBJ(model);
     system.runJob(renderOBJ(loadedModel, { x: 0, y: 200, z: 0 }, 0.1, 1, { x: 400, y: 400, z: 0}));
@@ -85,6 +87,7 @@ function* renderOBJ(model, startPos, scale = 1, fill = 1, lightPos = { x: 10, y:
             const line = new DebugLine(from, to);
             line.color = { red: brightness, green: brightness, blue: brightness };
             debugDrawer.addShape(line);
+            totalLineCount++;
         }
 
         if (fill > 1 && len === 3) {
@@ -132,6 +135,7 @@ function* renderOBJ(model, startPos, scale = 1, fill = 1, lightPos = { x: 10, y:
                         y: startPos.y + v2.y * scale,
                         z: startPos.z + v2.z * scale,
                     });
+                    totalLineCount += 3;
                     line.color = color;
                     debugDrawer.addShape(line);
                 }
@@ -139,4 +143,5 @@ function* renderOBJ(model, startPos, scale = 1, fill = 1, lightPos = { x: 10, y:
         }
         yield;
     }
+    world.sendMessage(`Loaded model with ${totalLineCount} lines`);
 }
