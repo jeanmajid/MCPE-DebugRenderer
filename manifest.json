@@ -1,7 +1,7 @@
 {
     "format_version": 2,
     "header": {
-        "name": "test",
+        "name": "MCPE-debugRenderer",
         "description": "",
         "uuid": "f24a7f10-d768-46a0-814e-23ae4b35f4a3",
         "version": [
@@ -42,7 +42,7 @@
     ],
     "metadata": {
         "authors": [
-            "Jean majid"
+            "jeanmajid"
         ]
     },
     "dependencies": [
