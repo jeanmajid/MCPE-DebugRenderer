@@ -1,0 +1,16 @@
+{
+  "name": "development_behavior_packs",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@minecraft/debug-utilities": "^1.0.0-beta.1.21.90-preview.20",
+    "@minecraft/server": "^2.1.0-beta.1.21.90-preview.20"
+  }
+}
