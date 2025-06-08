@@ -4,9 +4,10 @@ import { system, world } from "@minecraft/server";
 
 let totalLineCount = 0;
 
-const playerSpawnEvent = world.afterEvents.playerSpawn.subscribe(() => {
+const playerSpawnEvent = world.afterEvents.playerSpawn.subscribe(async () => {
+    await system.waitTicks(100);
     const loadedModel = loadOBJ(model);
-    system.runJob(renderOBJ(loadedModel, { x: 0, y: 200, z: 0 }, 0.1, 1, { x: 400, y: 400, z: 0}));
+    system.runJob(renderOBJ(loadedModel, { x: 0, y: 200, z: 0 }, 0.1, 8, { x: 400, y: 400, z: 0}));
 
     world.afterEvents.playerSpawn.unsubscribe(playerSpawnEvent);
 });
